@@ -1,8 +1,6 @@
 package com.shsxctf.Web.Scraper.models;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -55,7 +53,29 @@ public class EventScraper {
         System.setProperty("webdriver.chrome.driver", filePath);
         WebDriver driver = new ChromeDriver();
         driver.get(event.getUrl());
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+/*        JavascriptExecutor js = (JavascriptExecutor) driver;
+        try {
+            long lastHeight=((Number)js.executeScript("return document.body.scrollHeight")).longValue();
+            while (true) {
+                ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+                Thread.sleep(2000);
+
+                long newHeight = ((Number)js.executeScript("return document.body.scrollHeight")).longValue();
+                if (newHeight == lastHeight) {
+                    break;
+                }
+                lastHeight = newHeight;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+
         WebElement schedule = driver.findElement(By.id("resultsList"));
         List<WebElement> raceHeadings = schedule.findElements(By.tagName("thead"));
         this.results = schedule.findElements(By.tagName("tbody"));

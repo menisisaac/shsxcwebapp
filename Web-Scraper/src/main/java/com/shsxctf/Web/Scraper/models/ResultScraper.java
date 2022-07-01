@@ -32,10 +32,10 @@ public class ResultScraper {
         List<WebElement> teams = element.findElements(By.xpath("./child::*"));
         for (WebElement e : teams) {
             List<WebElement> elements = e.findElements(By.xpath("./child::*"));
-            String place = elements.get(0).getAttribute("data-text");
+            String place = elements.get(0).getText();
             String teamName = elements.get(1).findElements(By.xpath("./child::*")).get(0).getText();
-            String time = elements.get(2).getAttribute("data-text");
-            String heat = elements.get(3).getAttribute("data-text");
+            String time = elements.get(2).getText();
+            String heat = elements.get(3).getText();
             race.getResults().add(new Result(race, time, place, heat, teamName));
         }
     }
@@ -43,12 +43,12 @@ public class ResultScraper {
         List<WebElement> teams = element.findElements(By.xpath("./child::*"));
         for (WebElement e : teams) {
             List<WebElement> elements = e.findElements(By.xpath("./child::*"));
-            String place = elements.get(0).getAttribute("data-text");
+            String place = elements.get(0).getText();
             String athlete = elements.get(1).findElements(By.xpath("./child::*")).get(0).getText();
-            String grade = elements.get(2).getAttribute("data-text");
+            String grade = elements.get(2).getText();
             String teamName= elements.get(3).findElements(By.xpath("./child::*")).get(0).getText();
-            String time = elements.get(4).getAttribute("data-text");
-            String heat = elements.get(6).getAttribute("data-text");
+            String time = elements.get(4).getText();
+            String heat = elements.get(6).getText();
             race.getResults().add(new IndividualResult(race, time, place, heat, teamName, athlete, athlete, grade));
         }
     }
