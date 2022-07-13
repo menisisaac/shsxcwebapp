@@ -1,2 +1,4 @@
-package com.shsxctf.admin.services;public class EmailService {
+package com.shsxctf.admin.services;
+
+public class EmailService {
 }
