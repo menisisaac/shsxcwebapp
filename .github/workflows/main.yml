@@ -35,5 +35,7 @@ jobs:
             username/package:latest
             username/package:${{ github.sha }}
           context: "{{defaultContext}}:shsxctf"
+          images: |
+            menisisaac/shsxctt
 
     
