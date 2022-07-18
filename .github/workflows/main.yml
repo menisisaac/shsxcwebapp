@@ -35,6 +35,6 @@ jobs:
             menisisaac/shsxctf-frontend:latest
             menisisaac/shsxctf-frontend:${{ github.sha }}
           context: "{{defaultContext}}:shsxctf"
-          platform: linux/arm64/v8
+          platforms: linux/arm64/v8
 
     
