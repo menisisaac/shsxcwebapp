@@ -31,11 +31,11 @@ jobs:
 
       - name: Build and push the Docker image
         uses: docker/build-push-action@v3
-
         with:
           push: true
           tags: |
             username/package:latest
             username/package:${{ github.sha }}
+          files: shsxctf/**
 
     
