@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shsxctf-webapp
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shsxctf-webapp
+  template:
+    metadata:
+      labels:
+        app: shsxctf-webapp
+    spec:
+      containers:
+        - name: frontend
+          image: index.docker.io/menisisaac/shsxctf-frontend:latest
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '500m'
+            limits:
+              memory: '512Mi'
+              cpu: '1'
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 15
+            failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 120
+      imagePullSecrets:
+        - name: trccred
