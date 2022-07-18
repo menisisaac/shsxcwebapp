@@ -34,6 +34,6 @@ jobs:
           tags: |
             username/package:latest
             username/package:${{ github.sha }}
-          files: shsxctf/**
+          file: shsxctf/DockerFile
 
     
