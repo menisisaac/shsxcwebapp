@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64/v8 node:13.12.0-alpine as build
+FROM --platform=linux/arm64/v8 node:13.12.0-alpine as build-stage
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
