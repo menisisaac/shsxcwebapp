@@ -11,4 +11,3 @@ spec:
     targetPort: 3000
     protocol: TCP
     nodePort: 31000
-view raw
