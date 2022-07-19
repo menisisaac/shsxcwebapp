@@ -9,5 +9,5 @@ spec:
   ports:
   - name: webapp
     port: 3000
-    targetport: 80
+    targetPort: 80
 
