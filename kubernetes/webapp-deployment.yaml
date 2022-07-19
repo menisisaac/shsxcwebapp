@@ -18,6 +18,6 @@ spec:
           image: index.docker.io/menisisaac/shsxctf-frontend:latest
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
       imagePullSecrets:
         - name: trccred
