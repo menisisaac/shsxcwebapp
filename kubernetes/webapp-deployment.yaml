@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shsxctf-webapp
-  namespace: default
+  name: shsxctf-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shsxctf-webapp
+      app: shsxctf
   template:
     metadata:
       labels:
-        app: shsxctf-webapp
+        app: shsxctf
     spec:
       containers:
-        - name: frontend
-          image: index.docker.io/menisisaac/shsxctf-frontend:latest
+        - name: react-app
+          image: menisisaac/shsxctf-frontend:latest
           ports:
             - name: http
               containerPort: 80
