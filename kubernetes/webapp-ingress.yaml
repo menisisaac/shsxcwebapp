@@ -7,12 +7,12 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "12h"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
   name: webapp-ingress
-  namespace: default
 spec:
   rules:
     - http:
         paths:
-          - backend:
+          - path: /administration(/|$)(.*)
+            backend:
               serviceName: shsxctf-service
               servicePort: 8080
-            path: /administration(/|$)(.*)
+
