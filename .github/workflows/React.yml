@@ -43,7 +43,7 @@ jobs:
         run: docker pull menisisaac/shsxctf-frontend:latest
         
       - name: Run images
-        run: docker run -p 8080:80 menisisaac/shsxctf-frontend:latest
+        run: docker run -d -p 8080:80 menisisaac/shsxctf-frontend:latest
         
   
 
