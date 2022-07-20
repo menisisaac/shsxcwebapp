@@ -11,7 +11,7 @@ spec:
   rules:
     - host: hello-world.info
       http:
-        path:
+        paths:
           - path: /administration(/|$)(.*)
             backend:
               serviceName: shsxctf-service
