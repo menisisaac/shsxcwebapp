@@ -12,6 +12,7 @@ spec:
      - http:
         paths:
           - path: /administration(/|$)(.*)
+            pathType: Prefix
             backend:
               service:
                 name: shsxctf-service
