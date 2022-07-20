@@ -32,6 +32,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: self-hosted
+    needs: build
     
     steps:
       - name: Remove existing containers
