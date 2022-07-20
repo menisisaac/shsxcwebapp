@@ -28,3 +28,20 @@ jobs:
             menisisaac/shsxctf-schedule:latest
             menisisaac/shsxctf-schedule:${{ github.sha }}
           context: "{{defaultContext}}:schedule"
+          
+  deploy:
+    name: Deploy
+    runs-on: self-hosted
+    
+    steps:
+      - name: Remove existing containers
+        run: docker rm $(docker stop $(docker ps -a -q --filter ancestor=menisisaac/shsxctf-schedule:latest --format="{{.ID}}"))
+        
+      - name: Pull latest images
+        run: docker pull menisisaac/shsxctf-schedule:latest
+        
+      - name: Run images
+        run: docker run -d -p 8081:8081 menisisaac/shsxctf-schedule:latest
+        
+  
+  
