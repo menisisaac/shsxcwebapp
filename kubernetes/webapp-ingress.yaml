@@ -10,9 +10,9 @@ metadata:
 spec:
   rules:
     - http:
-        paths:
+        path:
           - path: /administration(/|$)(.*)
             backend:
-              serviceName: shsxctfservice
+              serviceName: shsxctf-service
               servicePort: 8080
 
