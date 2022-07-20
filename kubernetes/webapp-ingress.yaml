@@ -9,7 +9,8 @@ metadata:
   name: webapp-ingress
 spec:
   rules:
-    - http:
+    - host: hello-world.info
+      http:
         path:
           - path: /administration(/|$)(.*)
             backend:
