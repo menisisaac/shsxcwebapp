@@ -14,7 +14,7 @@ spec:
    
         paths:
    
-          - path: /
+          - path: /hi/.*
    
             pathType: Prefix
    
