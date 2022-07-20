@@ -9,11 +9,11 @@ metadata:
   name: webapp-ingress
 spec:
   rules:
-    - host: hello-world.info
-      http:
+     - http:
         paths:
           - path: /administration(/|$)(.*)
             backend:
-              serviceName: shsxctf-service
-              servicePort: 8080
+              name: shsxctf-service
+              port: 
+                number: 8080
 
