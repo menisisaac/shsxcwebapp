@@ -13,6 +13,6 @@ spec:
         paths:
           - path: /administration(/|$)(.*)
             backend:
-              serviceName: shsxctf-service
+              serviceName: shsxctfservice
               servicePort: 8080
 
