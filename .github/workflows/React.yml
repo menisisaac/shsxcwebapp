@@ -15,8 +15,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     
-    
-    
     steps: 
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -35,6 +33,22 @@ jobs:
             menisisaac/shsxctf-frontend:latest
             menisisaac/shsxctf-frontend:${{ github.sha }}
           context: "{{defaultContext}}:shsxctf"
+          
+  deploy:
+    name: Deploy
+    runs-on: self-hosted
+    
+    steps:
+      - name: Remove existing containers
+        run: docker rm $(docker stop $(docker ps -a -q --filter ancestor=menisisaac/shsxctf-frontend:latest --format="{{.ID}}"))
+        
+      - name: Pull latest images
+        run: docker pull menisisaac/shsxctf-frontend:latest
+        
+      - name: Run images
+        run: docker run -p 8080:80 menisisaac/shsxctf-frontend:latest
+        
+  
 
 
 
