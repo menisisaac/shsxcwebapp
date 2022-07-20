@@ -9,7 +9,8 @@ metadata:
   name: webapp-ingress
 spec:
   rules:
-     - http:
+     - host: isaac.info
+       http:
         paths:
           - path: /administration(/|$)(.*)
             pathType: Prefix
