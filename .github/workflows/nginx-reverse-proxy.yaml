@@ -1,1 +1,46 @@
+name: Reverse-Proxy Build
 
+on:
+  push:
+    paths:
+      - 'nginx-reverse-proxy/**'
+     
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build and push the Docker image
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: |
+            menisisaac/nginx-reverse-proxy:latest
+            menisisaac/nginx-reverse-proxy:${{ github.sha }}
+          context: "{{defaultContext}}:nginx-reverse-proxy"
+          
+  deploy:
+    name: Deploy
+    runs-on: self-hosted
+    needs: build
+    
+    steps:
+      - name: Remove existing containers
+        run: docker rm $(docker stop $(docker ps -a -q --filter ancestor=menisisaac/nginx-reverse-proxy:latest --format="{{.ID}}"))
+        
+      - name: Pull latest images
+        run: docker pull menisisaac/nginx-reverse-proxy:latest
+        
+      - name: Run images
+        run: docker run --network host menisisaac/nginx-reverse-proxy:latest
+        
