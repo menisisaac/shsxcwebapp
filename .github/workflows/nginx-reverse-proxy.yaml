@@ -42,5 +42,5 @@ jobs:
         run: docker pull menisisaac/nginx-reverse-proxy:latest
         
       - name: Run images
-        run: docker run --network host menisisaac/nginx-reverse-proxy:latest
+        run: docker run -d --network host menisisaac/nginx-reverse-proxy:latest
         
