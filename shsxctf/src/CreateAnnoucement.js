@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 async function submitAnnoucement(content) {
-    return fetch('http://192.168.1.16/api/admin/announcement')
+    return fetch('https://www.shsxctf.com/api/admin/announcement')
 }
 
 

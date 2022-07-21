@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 
 
 const ResultLines = (props) => {
-    const url = 'http://192.168.1.16/api/result/race?eventId=' + props.eventId + '&raceId=' + props.raceId;
+    const url = 'https://www.shsxctf.com/api/result/race?eventId=' + props.eventId + '&raceId=' + props.raceId;
     const {data, isPending, error} = useFetch(url);
     return (
         <div>

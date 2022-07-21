@@ -2,7 +2,7 @@ import EventList from "./EventList";
 import useFetch from "./useFetch";
 
 const Schedule = () => {
-    const {data, isPending, error} = useFetch("http://www.shsxctf.com/api/schedule/schedule");
+    const {data, isPending, error} = useFetch("https://www.shsxctf.com/api/schedule/schedule");
     return (
        <div className='schedule'>
             {error && <div>{error}</div>}
