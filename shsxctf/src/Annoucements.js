@@ -2,7 +2,7 @@ import AnnoucementList from "./AnnoucementList";
 import useFetch from "./useFetch";
 
 const Annoucements = () => {
-    const {data, isPending, error} = useFetch("http://192.168.1.212:8082/announcement");
+    const {data, isPending, error} = useFetch("http://192.168.1.16/api/admin/announcement");
     return (
         <div className='annoucements'>
             {error && <div>{error}</div>}

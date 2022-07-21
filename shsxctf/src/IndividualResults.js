@@ -3,7 +3,7 @@ import ResultLineList from "./ResultLineList";
 import useFetch from "./useFetch";
 
 const IndividualResults = (props) => {
-    const {data, isPending, error} = useFetch("http://192.168.1.212:8080/meet/races?eventId=" + props.meetId);
+    const {data, isPending, error} = useFetch("http://192.168.1.16/api/result/meet/races?eventId=" + props.meetId);
     return (
         <div className='individualresults'>
             {error && <div>{error}</div>}

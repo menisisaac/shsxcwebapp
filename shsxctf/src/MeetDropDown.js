@@ -3,7 +3,7 @@ import useFetch from "./useFetch";
 
 
 const MeetDropDown = (props) => {
-    const url = 'http://192.168.1.212:8080/meet';
+    const url = 'http://192.168.1.16/api/result/meet';
     const {data, isPending, error} = useFetch(url);
     return (
         <div>

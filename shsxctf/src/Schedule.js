@@ -2,7 +2,7 @@ import EventList from "./EventList";
 import useFetch from "./useFetch";
 
 const Schedule = () => {
-    const {data, isPending, error} = useFetch("http://192.168.1.212:8081/schedule");
+    const {data, isPending, error} = useFetch("http://192.168.1.16/api/schedule/schedule");
     return (
        <div className='schedule'>
             {error && <div>{error}</div>}
