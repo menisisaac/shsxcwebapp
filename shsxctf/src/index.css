@@ -6,6 +6,13 @@
   margin: 5px;
   font-family: "Quicksand";
   color: #333;
+  
+}
+
+body {
+  background-image: url(https://gojsutigers.com/images/2022/3/21/track_background.jpg?width=1920&height=1080&mode=crop&quality=80&format=jpg);
+  background-size:cover;
+  background-position:center;
 }
 
 
@@ -44,14 +51,44 @@
     max-height: 200px;
     outline-style: solid;
   }
+  .containerTwo {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    -ms-grid-column-align: center;
+    grid-template-rows: 500px;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+  .nextMeet {
+    text-align:center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .nextMeet h1 {
+    font-size: 75px;
+  }
+  .nextMeet h2 {
+    font-size: 40px;
+  }
+  .nextMeet p {
+    font-size: 20px;
+  }
+  
+  
+  .image {
+    max-width: 100%;
+    height:  auto;
+    margin-right: -500px;
+    position: relative;
+    top: 50%;
+    transform:  translateY(-50%)
+  }
 }
 
 
 @media screen and (min-width: 1024px) {
 
-.topnav {
-  display:none;
-}
 
 .navbar {
   padding: 20px;
@@ -63,11 +100,14 @@
 }
 .navbar h1 {
   color: #f1356d;
+  font-size: xx-large
 }
 .navbar .links {
   margin-left: auto;
 }
 .navbar a {
+  background-color: white;
+  border-radius: 12px;
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
@@ -91,7 +131,40 @@
   align-items: stretch;
 }
 
+.containerTwo {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 450px;
+  justify-items: stretch;
+  align-items: stretch;
+}
+.nextMeet {
+  text-align:center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.nextMeet h1 {
+  font-size: 75px;
+}
+.nextMeet h2 {
+  font-size: 40px;
+}
+.nextMeet p {
+  font-size: 20px;
+}
+
+
+.image {
+  max-width: 70%;
+  height:  auto;
+  margin-right: -50px;
+  position: relative;
+  top: 50%;
+  transform:  translateY(-50%)
+}
+
 .schedule {
+  background-color: white;
   order: 1;
   overflow-y:auto;
   max-height: 66%;
@@ -100,12 +173,27 @@
 }
 
 .annoucements {
+  background-color: white;
   text-align: center;
   min-height: 66%;
   max-height: 66%;
   outline-style: solid;
   overflow-y: auto;
+}
 
+.homeBanner {
+  background-color: white;
+  text-align: center;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.event-list h2 {
+  text-align: center;
+}
+
+.result-list h2 {
+  text-align: center;
 }
 
 .annoucement {
@@ -116,6 +204,7 @@
 }
 
 .results {
+  background-color: white;
   order: 3;
   overflow-y: auto;
   max-height: 66%;
