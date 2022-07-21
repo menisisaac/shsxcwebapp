@@ -98,14 +98,18 @@ body {
   max-width: 1000px;
   border-bottom: 1px solid #f2f2f2;
 }
-.navbar h1 {
-  color: #f1356d;
-  font-size: xx-large
+.homeLink {
+  color: pink;
+  text-decoration: none;
+  font-size: xx-large;
+  font-weight: bold
+
 }
+
 .navbar .links {
   margin-left: auto;
 }
-.navbar a {
+.navbar .links a {
   background-color: white;
   border-radius: 12px;
   margin-left: 16px;
