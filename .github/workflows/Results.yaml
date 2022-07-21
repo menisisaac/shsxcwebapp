@@ -42,7 +42,7 @@ jobs:
         run: docker pull menisisaac/shsxctf-results:latest
         
       - name: Run images
-        run: docker run -d -p 8080:8080 menisisaac/shsxctf-results:latest
+        run: docker run -d -p 8080:8080 --add-host host.docker.internal:host-gateway menisisaac/shsxctf-results:latest
         
   
   
