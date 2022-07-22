@@ -5,6 +5,9 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci --silent
 RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm install bootstrap -g --silent
+RUN npm install axios -g --silent
+RUN
 COPY . ./
 RUN npm run build
 # production environment

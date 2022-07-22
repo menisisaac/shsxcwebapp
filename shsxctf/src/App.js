@@ -3,11 +3,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Dashboard from "./Dashboard";
 import Home from "./Home";
 import { useState } from "react";
-import Login from "./Login";
 import CrossCountry from "./CrossCountry";
 import Indoortf from "./Indoortf";
 import Outdoortf from "./Outdoortf";
-import UploadFiles from "./FileUploadPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
