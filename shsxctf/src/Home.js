@@ -1,4 +1,5 @@
 import Annoucements from "./Annoucements";
+import UploadFiles from "./FileUploadPage";
 import HomeContent from "./HomeContent";
 import Results from "./Results";
 import Schedule from "./Schedule";
@@ -18,6 +19,7 @@ const Home = () => {
                     <Results/>
                 </div>
             </div>
+            <UploadFiles/>
         </div>
     );
 }

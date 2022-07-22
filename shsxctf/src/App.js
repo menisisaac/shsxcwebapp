@@ -7,6 +7,8 @@ import Login from "./Login";
 import CrossCountry from "./CrossCountry";
 import Indoortf from "./Indoortf";
 import Outdoortf from "./Outdoortf";
+import UploadFiles from "./FileUploadPage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
       <div className='content'>
         <Switch>
           <Route exact path="/xc"><CrossCountry/></Route>
+          <Route exact path='grout'></Route>
           <Route exact path='/indoortf'><Indoortf/></Route>
           <Route exact path={'/outdoortf'}><Outdoortf/></Route>
           <Route exact path="/admin"><Dashboard/></Route>

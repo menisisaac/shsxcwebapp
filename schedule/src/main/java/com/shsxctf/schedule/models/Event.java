@@ -9,10 +9,27 @@ public class Event implements Comparable<Event> {
     private String location;
     private String date;
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    private String time;
+
     public Event(String name, String location, String date) {
         this.name = name;
         this.location = location;
         this.date = date;
+    }
+
+    public Event(String name, String location, String date, String time) {
+        this.name = name;
+        this.location = location;
+        this.date = date;
+        this.time = time;
     }
 
     public Event(int id, String name, String location, String date) {

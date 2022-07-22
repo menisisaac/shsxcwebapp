@@ -18,7 +18,7 @@ public class AnnouncementController {
     @Autowired
     JdbcTemplate template;
 
-    @PostMapping("/annoucement")
+    @PostMapping("/announcement")
     @CrossOrigin
     public void addAnnoucement() {
         String sql = "INSERT INTO announcement(date, description) VALUES (?, ?)";
