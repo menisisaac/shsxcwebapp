@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,48 @@ public class MeetResultController {
     List<Race> getMeetRaces(@RequestParam("eventId") String eventId) {
         String sql = "SELECT * FROM race_test WHERE idevent = " + eventId;
         return template.query(sql, new RaceTestMapper());
+    }
+
+    @GetMapping("/season/xc")
+    @CrossOrigin
+    List<String> getXcSeason() {
+        String sql = "SELECT DISTINCT season FROM event_test";
+        List<String> season = template.queryForList(sql, String.class);
+        List<String> filteredSeason = new ArrayList<>();
+        for(String s : season) {
+            if(s.contains("xc") || s.contains("cross country") || s.contains("Cross Country") || s.contains("XC")) {
+                filteredSeason.add(s);
+            }
+        }
+        return season;
+    }
+
+    @GetMapping("/season/indoor")
+    @CrossOrigin
+    List<String> getIndoorSeason() {
+        String sql = "SELECT DISTINCT season FROM event_test";
+        List<String> season = template.queryForList(sql, String.class);
+        List<String> filteredSeason = new ArrayList<>();
+        for(String s : season) {
+            if(s.contains("indoor") || s.contains("Indoor")) {
+                filteredSeason.add(s);
+            }
+        }
+        return season;
+    }
+
+    @GetMapping("/season/outdoor")
+    @CrossOrigin
+    List<String> getOutdoorSeason() {
+        String sql = "SELECT DISTINCT season FROM event_test";
+        List<String> season = template.queryForList(sql, String.class);
+        List<String> filteredSeason = new ArrayList<>();
+        for(String s : season) {
+            if(s.contains("Outdoor") || s.contains("outdoor")) {
+                filteredSeason.add(s);
+            }
+        }
+        return season;
     }
 
     @GetMapping("/race")
