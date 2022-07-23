@@ -2,17 +2,20 @@ import { useState } from "react";
 import IndividualResults from "./IndividualResults";
 
 const MeetList = (props) => {
-    const meets = props.meets
+    const meets = props.meets;
+    const seasons = props.seasons;
     const [selectedMeet, setMeet] = useState('1');
+
 
     return (
     <div>
-    <form>
+    <form>  
+
         <select
         value = {selectedMeet}
         onChange={(e) => setMeet(e.target.value)}
         >
-            {meets.map((meet) => (
+            {meets.filter(m => m.season == props.season).map((meet) => (
                 <option value={meet.id}>{meet.name}</option>
             ))}
         </select>

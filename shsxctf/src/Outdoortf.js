@@ -1,10 +1,11 @@
 import IndividualResults from "./IndividualResults"
 import MeetDropDown from "./MeetDropDown";
+import MeetSeasonDropDown from "./MeetSeasonDropDown";
 
 const Outdoortf = () => {
     return (
         <div>
-            <MeetDropDown />
+            <MeetSeasonDropDown />
         </div>
     );
 }
