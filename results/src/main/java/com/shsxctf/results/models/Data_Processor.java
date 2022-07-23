@@ -2,29 +2,59 @@ package com.shsxctf.results.models;
 
 import com.shsxctf.results.mappers.EventTestMapper;
 import com.shsxctf.results.mappers.RaceTestMapper;
-import org.apache.tomcat.util.http.fileupload.impl.FileUploadIOException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Data_Processor {
 
     public List<String> lines;
     List<String[]> formated = new ArrayList<>();
-
     private List<String> raceNames;
 
     private List<List<String>> results;
+    private  String eventName;
+    private String eventUrl;
 
-    public Data_Processor(String fileName) {
-        lines = getLines("/Users/isaacmenis/Documents/groutinvitational.txt");
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getEventUrl() {
+        return eventUrl;
+    }
+
+    public void setEventUrl(String eventUrl) {
+        this.eventUrl = eventUrl;
+    }
+
+    public String getSeason() {
+        return season;
+    }
+
+    public void setSeason(String season) {
+        this.season = season;
+    }
+
+    private String season;
+
+    public Data_Processor(String[] line, String eventName, String  eventUrl, String season) {
+        lines = Arrays.asList(line);
+        this.season = season;
+        this.eventName = eventName;
+        this.eventUrl = eventUrl;
         getFormattedLines();
+
 
     }
 
@@ -164,11 +194,12 @@ public class Data_Processor {
     }
 
     public void sendToDataBase(JdbcTemplate template) {
-        String sql = "INSERT INTO event_test(name, date) VALUES(?,?)";
+
+        String sql = "INSERT INTO event_test(name, url, season) VALUES(?,?,?)";
         String raceSQL = "INSERT INTO race_test(idevent, raceName) VALUES(?,?)";
         String resultSQL = "INSERT INTO result_test(description, idevent, idrace) VALUES (?,?,?)";
 
-        template.update(sql, "Sectionals", "11/07/21");
+        template.update(sql, eventName, eventUrl, season);
         int eventid = template.query("SELECT * FROM event_test ORDER BY idevent_test DESC LIMIT 1", new EventTestMapper()).get(0).getId();
         for(int i = 0; i < raceNames.size(); i++) {
             template.update(raceSQL, eventid, raceNames.get(i));

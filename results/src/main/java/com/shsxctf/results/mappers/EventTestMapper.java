@@ -12,7 +12,7 @@ public class EventTestMapper implements RowMapper<Event> {
         Event event = new Event();
         event.setId(rs.getInt("idevent_test"));
         event.setName(rs.getString("name"));
-        event.setDate(rs.getString("date"));
+        event.setSeason(rs.getString("season"));
         return event;
     }
 }

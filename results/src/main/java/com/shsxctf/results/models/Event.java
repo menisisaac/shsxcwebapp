@@ -3,13 +3,13 @@ package com.shsxctf.results.models;
 public class Event {
     private int id;
     private String name;
-    private String date;
+    private String season;
 
 
-    public Event(int id, String name, String date) {
+    public Event(int id, String name, String season) {
         this.id = id;
         this.name = name;
-        this.date = date;
+        this.season = season;
     }
 
     public Event() { }
@@ -30,12 +30,12 @@ public class Event {
         this.name = name;
     }
 
-    public String getDate() {
-        return date;
+    public String getSeason() {
+        return season;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setSeason(String date) {
+        this.season = season;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Event {
         return "Event{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
+                ", season='" + season + '\'' +
                 '}';
     }
 }
