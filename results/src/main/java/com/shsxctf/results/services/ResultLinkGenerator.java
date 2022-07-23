@@ -74,8 +74,9 @@ public class ResultLinkGenerator {
                     System.out.println(tempUrl);
                     template.update(sql, tempUrl, temp.get(0).text(), season);
                     urls.add(new ResultUrl(tempUrl, temp.get(0).text()));
-                    if(Scraper.getLines(tempUrl) != null) {
+                    if(Scraper.getLines(tempUrl) != null && tempUrl.contains("section2harrier")) {
                         Data_Processor dp = new Data_Processor(Scraper.getLines(tempUrl), temp.get(0).text(), tempUrl, season);
+                        dp.sendToDataBase(template);
                     }
                 }
             }

@@ -32,6 +32,7 @@ public class ResultsController {
     @PostMapping("/result/url")
     void updateUrls() {
         ResultLinkGenerator resultLinkGenerator = new ResultLinkGenerator(template);
+
     }
 
     @CrossOrigin
