@@ -12,6 +12,10 @@ public class Annoucement {
         this.date = date;
     }
 
+    public Annoucement(String date, String text) {
+        this.text = text;
+        this.date = date;
+    }
     public Annoucement() {
 
     }

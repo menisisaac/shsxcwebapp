@@ -4,10 +4,7 @@ import com.shsxctf.admin.mappers.AnnoucementMapper;
 import com.shsxctf.admin.models.Annoucement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -20,8 +17,10 @@ public class AnnouncementController {
 
     @PostMapping("/announcement")
     @CrossOrigin
-    public void addAnnoucement() {
+    public Annoucement addAnnoucement(@RequestBody Annoucement annoucement) {
         String sql = "INSERT INTO announcement(date, description) VALUES (?, ?)";
+        //template.update(sql, annoucement.getDate(), annoucement.getText());
+        return annoucement;
     }
 
     @GetMapping("/announcement")
