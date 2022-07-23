@@ -2,10 +2,12 @@ package com.shsxctf.results.controllers;
 
 import com.shsxctf.results.mappers.EventTestMapper;
 import com.shsxctf.results.mappers.RaceTestMapper;
+import com.shsxctf.results.mappers.SeasonMapper;
 import com.shsxctf.results.mappers.resultsMapper;
 import com.shsxctf.results.models.Event;
 import com.shsxctf.results.models.Race;
 import com.shsxctf.results.models.Result;
+import com.shsxctf.results.models.Season;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -66,12 +68,12 @@ public class MeetResultController {
 
     @GetMapping("/season/outdoor")
     @CrossOrigin
-    List<String> getOutdoorSeason() {
+    List<Season> getOutdoorSeason() {
         String sql = "SELECT DISTINCT season FROM event_test";
-        List<String> season = template.queryForList(sql, String.class);
-        List<String> filteredSeason = new ArrayList<>();
-        for(String s : season) {
-            if(s.contains("Outdoor") || s.contains("outdoor")) {
+        List<Season> season = template.query(sql, new SeasonMapper());
+        List<Season> filteredSeason = new ArrayList<>();
+        for(Season s : season) {
+            if(s.getSeason().contains("Outdoor") || s.getSeason().contains("outdoor")) {
                 filteredSeason.add(s);
             }
         }
