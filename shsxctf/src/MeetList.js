@@ -3,7 +3,6 @@ import IndividualResults from "./IndividualResults";
 
 const MeetList = (props) => {
     const meets = props.meets;
-    const seasons = props.seasons;
     const [selectedMeet, setMeet] = useState('1');
 
 

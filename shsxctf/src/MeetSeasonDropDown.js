@@ -2,8 +2,9 @@ import { useState } from "react";
 import useFetch from "./useFetch";
 import MeetDropDown from "./MeetDropDown";
 
-const MeetSeasonDropDown = () => {
-    const url = 'https://www.shsxctf.com/api/result/season/outdoor';
+const MeetSeasonDropDown = (props) => {
+    const whichSeason = props.season
+    const url = 'https://www.shsxctf.com/api/result/season/' + whichSeason;
     const [selectedSeason, setSeason] = useState('1');
     const {data, isPending, error} = useFetch(url);
 

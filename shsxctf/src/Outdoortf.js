@@ -3,9 +3,10 @@ import MeetDropDown from "./MeetDropDown";
 import MeetSeasonDropDown from "./MeetSeasonDropDown";
 
 const Outdoortf = () => {
+    const seas = "outdoor"
     return (
         <div>
-            <MeetSeasonDropDown />
+            <MeetSeasonDropDown season={seas}/>
         </div>
     );
 }
