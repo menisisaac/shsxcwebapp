@@ -28,6 +28,8 @@ public class FilesController {
         String message = "";
         ScheduleTextProcessor scheduleTextProcessor = new ScheduleTextProcessor();
         try {
+            storageService.deleteAll();
+            storageService.init();
             storageService.save(file);
             scheduleTextProcessor.formatResults(template, storageService);
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
