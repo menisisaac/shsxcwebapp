@@ -27,9 +27,7 @@ public class FilesController {
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
         String message = "";
         ScheduleTextProcessor scheduleTextProcessor = new ScheduleTextProcessor();
-        //scheduleTextProcessor.inputSchedule(template);
         try {
-            storageService.deleteAll();
             storageService.save(file);
             scheduleTextProcessor.formatResults(template, storageService);
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
