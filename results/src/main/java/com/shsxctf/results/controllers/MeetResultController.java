@@ -31,6 +31,13 @@ public class MeetResultController {
         return template.query(sql, new EventTestMapper());
     }
 
+    @GetMapping("/meet/outdoor/season")
+    @CrossOrigin
+    List<Event> outdoor(@RequestParam("sea") String sea) {
+        String sql = "SELECT * FROM event_test WHERE season = " + "'" +  sea + "'";
+        return template.query(sql, new EventTestMapper());
+    }
+
     @GetMapping("/meet/races")
     @CrossOrigin
     List<Race> getMeetRaces(@RequestParam("eventId") String eventId) {

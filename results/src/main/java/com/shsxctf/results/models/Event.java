@@ -34,7 +34,7 @@ public class Event {
         return season;
     }
 
-    public void setSeason(String date) {
+    public void setSeason(String season) {
         this.season = season;
     }
 
