@@ -3,11 +3,15 @@ import UploadFiles from "./FileUploadPage";
 import HomeContent from "./HomeContent";
 import Results from "./Results";
 import Schedule from "./Schedule";
+import useFetch from "./useFetch";
 
 const Home = () => {
+    const {data, isPending, error} = useFetch("https://www.shsxctf.com/api/schedule/schedule");
     return (
         <div>
-            <HomeContent/>
+            {error && <div>{error}</div>}
+            {isPending && <div>Loading...</div>}
+            {data && <HomeContent next={data}/>}
             <div className='container'>
                 <div className='col grid_1_of_3'>
                     <Schedule/>
