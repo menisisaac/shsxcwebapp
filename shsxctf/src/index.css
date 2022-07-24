@@ -5,9 +5,9 @@
 * {
   margin: 5px;
   font-family: "Quicksand";
-  color: #333;
-  
+  color: #333; 
 }
+
 
 body {
   background-image: url(https://gojsutigers.com/images/2022/3/21/track_background.jpg?width=1920&height=1080&mode=crop&quality=80&format=jpg);
@@ -208,7 +208,7 @@ body {
   overflow-y:auto;
   max-height: 66%;
   outline-style: solid;
-  
+
 }
 
 .annoucements {
@@ -230,6 +230,7 @@ body {
 
 .event-list h2 {
   text-align: center;
+  font-size: large;
 }
 
 .result-list h2 {

@@ -15,6 +15,7 @@ public class EventMapper implements RowMapper<Event> {
         event.setDate(rs.getString("date"));
         event.setLocation(rs.getString("location"));
         event.setName(rs.getString("name"));
+        event.setTime(rs.getString("time"));
         return event;
     }
 }
