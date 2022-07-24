@@ -23,7 +23,6 @@ const Home = () => {
                     <Results/>
                 </div>
             </div>
-            <UploadFiles/>
         </div>
     );
 }

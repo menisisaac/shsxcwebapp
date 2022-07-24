@@ -11,10 +11,10 @@ const TestNavBar = () => {
     <div class="navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <Link class="nav-link active" aria-current="page" to="/xc">Cross Country</Link>
-        <Link class="nav-link" to="/indoortf">Indoor Track</Link>
-        <Link class="nav-link" to="/outdoortf">Outdoor Track</Link>
-        <Link class="nav-link" to="/grout">Grout Invitational</Link>
-        <Link class="nav-link" to="/info">Team Information</Link>
+        <Link class="nav-link active" to="/indoortf">Indoor Track</Link>
+        <Link class="nav-link active" to="/outdoortf">Outdoor Track</Link>
+        <Link class="nav-link active" to="/grout">Grout Invitational</Link>
+        <Link class="nav-link active" to="/info">Team Information</Link>
       </div>
     </div>
   </div>
