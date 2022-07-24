@@ -44,7 +44,7 @@ public class AddOldResults {
         String resultUrl = "";
         Elements links;
         try {
-            doc = Jsoup.connect(resultUrl).get();
+            doc = Jsoup.connect(url).get();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
