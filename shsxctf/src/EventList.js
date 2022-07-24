@@ -9,7 +9,7 @@ const EventList = (props) => {
             {events.map((event) => (
                <div className='event-info' key={event.id}>
                 <h2>{event.name}</h2>
-                <p>Location: {event.location} Date: {event.date} Time: {event.time}</p>
+                <p>Date: {event.date} Time: {event.time}<br/>Location: {event.location} </p>
                 </div>
             ))}
         </div>

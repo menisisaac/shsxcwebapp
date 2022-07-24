@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
-import java.util.List;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RestController
 public class ScheduleController {
@@ -32,8 +34,22 @@ public class ScheduleController {
     public List<Event> getSchedule() {
         String sql = "SELECT * FROM event";
         List<Event> events = template.query(sql, new EventMapper());
-        Collections.sort(events);
-        return events;
+        List<Event> postToday = new ArrayList<>();
+        Date curr = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+        for(Event e : events) {
+            try {
+                if(!curr.after(formatter.parse(e.getDate()))) {
+                    postToday.add(e);
+                }
+            } catch (ParseException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        if(postToday.isEmpty()) {
+            return events;
+        }
+        return postToday;
     }
 }
 

@@ -69,7 +69,6 @@ public class ScheduleTextProcessor {
             String myDriver = "org.gjt.mm.mysql.Driver";
             Connection conn = DriverManager.getConnection("jdbc:mysql://host.docker.internal:3306/schedule?" + "user=root&password=password");
             //Class.forName(myDriver);
-            System.out.println("hello");
             PreparedStatement preparedStmt = conn.prepareStatement(sql);
             preparedStmt.setString (1, name);
             preparedStmt.setString (2, date);
