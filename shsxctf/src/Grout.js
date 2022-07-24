@@ -3,8 +3,9 @@
 const Grout = () => {
     return (
         <div className='grout'>
-            <div className="list-group">
-                <h2>Results</h2>
+            <div className="containerThree">
+            <div className="list-group grout-results-list">
+                <li className="list-group-item">Results</li>
                 <li className="list-group-item"><a href="https://section2harrier.com/crosscountry21/xc21groutinvy.html">2021</a></li>
                 <li className="list-group-item"><a href="https://www.section2harrier.com/crosscountry19/xc19groutinvy.html">2019</a></li>
                 <li className="list-group-item"><a href="https://section2harrier.com/crosscountry18/xc18groutinvy.html">2018</a></li>
@@ -13,8 +14,19 @@ const Grout = () => {
                 <li className="list-group-item"><a href="https://section2harrier.com/crosscountry15/xc15groutinvy.html">2015</a></li>
                 <li className="list-group-item"><a href="https://section2harrier.com/crosscountry14/xc14groutinvy.htmlsche">2014</a></li>
             </div>
-            <div className='gif'>
+            <div className="list-group grout-information-list">
+                <li className="list-group-item">Information</li>
+                <li className="list-group-item"><a href="https://section2harrier.com/crosscountry21/xc21groutinvy.html">2022 Invitational Info</a></li>
+                <li className="list-group-item"><a href="https://www.section2harrier.com/crosscountry19/xc19groutinvy.html">Course Map</a></li>
+                <li className="list-group-item"><a href="https://section2harrier.com/crosscountry18/xc18groutinvy.html">Frosh/Mod Map</a></li>
+                <li className="list-group-item"><a href="https://section2harrier.com/crosscountry17/xc17groutinvy.html">2022 Tee Shirt</a></li>
+                <li className="list-group-item"><a href="https://dailygazette.com/2021/10/03/images-runners-compete-at-grout-invitational-in-schenectady-31-photos/">2021 Photos</a></li>
+                <li className="list-group-item"><a href="https://www.timesunion.com/tuplus-sports/article/Grout-Invitational-offers-unique-challenge-9445716.php">Grout History</a></li>
+                <li className="list-group-item"><a href="https://section2harrier.com/crosscountry14/xc14groutinvy.htmlsche">Volunteer Info</a></li>
+            </div>
+            <div className='gifHolder'>
                 <img className='gif' src={require('./slideshow.GIF')}/>
+            </div>
             </div>
             <div className="table-responsive">
                 <table className="table table-hover table-dark">

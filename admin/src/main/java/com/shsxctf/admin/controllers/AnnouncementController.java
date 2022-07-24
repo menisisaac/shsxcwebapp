@@ -19,7 +19,7 @@ public class AnnouncementController {
     @CrossOrigin
     public Annoucement addAnnoucement(@RequestBody Annoucement annoucement) {
         String sql = "INSERT INTO announcement(date, description) VALUES (?, ?)";
-        //template.update(sql, annoucement.getDate(), annoucement.getText());
+        template.update(sql, annoucement.getDate(), annoucement.getText());
         return annoucement;
     }
 

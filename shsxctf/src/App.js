@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/xc"><CrossCountry/></Route>
           <Route exact path='/grout'><Grout/></Route>
           <Route exact path='/indoortf'><Indoortf/></Route>
-          <Route exact path={'/outdoortf'}><Outdoortf/></Route>
+          <Route exact path='/outdoortf'><Outdoortf/></Route>
           <Route exact path="/admin"><Dashboard/></Route>
           <Route exact path="/"><Home/></Route>
         </Switch>

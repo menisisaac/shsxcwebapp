@@ -16,8 +16,13 @@ body {
   background-repeat: no-repeat;
 }
 
-.list-group {
+.grout-results-list {
   max-width: 100px;
+}
+
+
+.grout-information-list  {
+  
 }
 
 @media screen and (max-width: 480px) {
@@ -157,6 +162,12 @@ body {
   justify-items: stretch;
   align-items: stretch;
 }
+.containerThree {
+  display: grid;
+  grid-template-columns: 10% 40% 50%;
+  justify-items: stretch;
+  align-items: stretch;
+}
 .nextMeet {
   text-align:center;
   margin-top: auto;
@@ -172,14 +183,16 @@ body {
   font-size: 20px;
 }
 .gif {
-  width: 60%;
-  float: right
+  margin-left:  auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
 }
 .grout {
 }
 
 .list-group {
-  width: 10%;
+
   float: left;
 }
 .table-responsive {
@@ -241,7 +254,9 @@ body {
   order: 2;
 
   max-height:66%;
-
+}
+.annoucement-info h2 {
+  font-size: large;
 }
 
 .results {
