@@ -16,13 +16,27 @@ body {
   background-repeat: no-repeat;
 }
 
+.list-group {
+  max-width: 100px;
+}
 
 @media screen and (max-width: 480px) {
 
-  .navbar {
-    display:none;
-  }
 
+
+  .gif {
+    width: 100%;
+  }
+  .table-responsive {
+    width: 100%;
+    color: white;
+  }
+  .table-responsive th {
+    color: white;
+  }
+  .table-responsive th[scope="col"] {
+    color:white;
+  }
   .container {
     display: grid;
     grid-template-columns: 100%;
@@ -157,7 +171,27 @@ body {
 .nextMeet p {
   font-size: 20px;
 }
+.gif {
+  width: 60%;
+  float: right
+}
+.grout {
+}
 
+.list-group {
+  width: 10%;
+  float: left;
+}
+.table-responsive {
+  width: 100%;
+  color: white;
+}
+.table-responsive th {
+  color: white;
+}
+.table-responsive th[scope="col"] {
+  color:white;
+}
 
 .image {
   max-width: 70%;
