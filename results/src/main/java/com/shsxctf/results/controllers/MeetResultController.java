@@ -8,6 +8,7 @@ import com.shsxctf.results.models.Event;
 import com.shsxctf.results.models.Race;
 import com.shsxctf.results.models.Result;
 import com.shsxctf.results.models.Season;
+import com.shsxctf.results.services.AddOldResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -85,6 +86,13 @@ public class MeetResultController {
             }
         }
         return season;
+    }
+
+    @PostMapping("/addResult")
+    @CrossOrigin
+    public void addResults() {
+        AddOldResults results = new AddOldResults(template, "https://www.section2harrier.com/indoor2122/in2122schedule.html", "2021-22 Indoor");
+        AddOldResults resultsTwo = new AddOldResults(template, "https://section2harrier.com/crosscountry21/xc21invy.html", "2021 Cross Country");
     }
 
     @GetMapping("/race")

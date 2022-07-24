@@ -17,23 +17,16 @@ import java.util.List;
 import java.util.Set;
 
 
-public class ResultLinkGenerator {
+public class AddOldResults {
     private List<ResultUrl> urls = new ArrayList<>();
     private List<ResultUrl> currentUrls;
-
     private  Set<String> urlValue = new HashSet<>();
+    private String url;
+    private String season;
 
-
-
-    private String url = "https://www.section2harrier.com/";
-
-    public ResultLinkGenerator(JdbcTemplate template) {
-        scrape(template);
-        currentUrls = template.query("SELECT * FROM url", new UrlMapper());
-        setUrlValues();
-    }
-    public ResultLinkGenerator(JdbcTemplate template, String url) {
+    public AddOldResults(JdbcTemplate template, String url, String season) {
         this.url = url;
+        this.season = season;
         scrape(template);
         currentUrls = template.query("SELECT * FROM url", new UrlMapper());
         setUrlValues();
@@ -48,23 +41,8 @@ public class ResultLinkGenerator {
 
     public void scrape(JdbcTemplate template) {
         Document doc;
-        String sql = "INSERT INTO url (url, name, season) VALUES (?, ?, ?)";
         String resultUrl = "";
-        try {
-            doc = Jsoup.connect(url).get();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Elements spans = doc.getElementsByClass("auto-style128");
-        String season = spans.get(0).text().split(":")[0];
-        Elements links = doc.getElementsByAttribute("href");
-        for(Element e : links) {
-            if(e.text().equals("Invitationals & Results")) {
-                System.out.println(e.absUrl("href"));
-                resultUrl = e.absUrl("href");
-                break;
-            }
-        }
+        Elements links;
         try {
             doc = Jsoup.connect(resultUrl).get();
         } catch (IOException e) {
@@ -76,9 +54,6 @@ public class ResultLinkGenerator {
             if(temp.size() == 2 && temp.get(1).getElementsByAttribute("href").size() > 0) {
                 String tempUrl = temp.get(1).getElementsByAttribute("href").get(0).absUrl("href");
                 if(!isUrlIdExists(tempUrl, template)) {
-                    System.out.println(tempUrl);
-                    template.update(sql, tempUrl, temp.get(0).text(), season);
-                    urls.add(new ResultUrl(tempUrl, temp.get(0).text()));
                     if(Scraper.getLines(tempUrl) != null && tempUrl.contains("section2harrier")) {
                         Data_Processor dp = new Data_Processor(Scraper.getLines(tempUrl), temp.get(0).text(), tempUrl, season);
                         dp.sendToDataBase(template);
