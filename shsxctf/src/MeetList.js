@@ -14,6 +14,7 @@ const MeetList = (props) => {
         value = {selectedMeet}
         onChange={(e) => setMeet(e.target.value)}
         >
+            <option selected="Pick Meet">Pick Meet</option>
             {meets.filter(m => m.season == props.season).map((meet) => (
                 <option value={meet.id}>{meet.name}</option>
             ))}

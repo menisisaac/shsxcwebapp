@@ -17,6 +17,7 @@ const MeetSeasonDropDown = (props) => {
                 value = {selectedSeason}
                 onChange={(e) => setSeason(e.target.value)}
                 >
+                    <option selected="Pick Season">Pick Season</option>
                     {data.map((season) => (
                     <option value={season.season}>{season.season}</option>
                 ))}
