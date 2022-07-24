@@ -53,11 +53,11 @@ public class MeetResultController {
         List<String> season = template.queryForList(sql, String.class);
         List<String> filteredSeason = new ArrayList<>();
         for(String s : season) {
-            if(s.contains("xc") || s.contains("cross country") || s.contains("Cross Country") || s.contains("XC")) {
+            if(s.contains("xc") || s.contains("cross") || s.contains("Cross") || s.contains("XC")) {
                 filteredSeason.add(s);
             }
         }
-        return season;
+        return filteredSeason;
     }
 
     @GetMapping("/season/indoor")
@@ -71,7 +71,7 @@ public class MeetResultController {
                 filteredSeason.add(s);
             }
         }
-        return season;
+        return filteredSeason;
     }
 
     @GetMapping("/season/outdoor")
@@ -85,7 +85,7 @@ public class MeetResultController {
                 filteredSeason.add(s);
             }
         }
-        return season;
+        return filteredSeason;
     }
 
     @PostMapping("/addResult")
