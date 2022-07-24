@@ -48,12 +48,12 @@ public class MeetResultController {
 
     @GetMapping("/season/xc")
     @CrossOrigin
-    List<String> getXcSeason() {
+    List<Season> getXcSeason() {
         String sql = "SELECT DISTINCT season FROM event_test";
-        List<String> season = template.queryForList(sql, String.class);
-        List<String> filteredSeason = new ArrayList<>();
-        for(String s : season) {
-            if(s.contains("xc") || s.contains("cross") || s.contains("Cross") || s.contains("XC")) {
+        List<Season> season = template.query(sql, new SeasonMapper());
+        List<Season> filteredSeason = new ArrayList<>();
+        for(Season s : season) {
+            if(s.getSeason().contains("xc") || s.getSeason().contains("cross") || s.getSeason().contains("Cross") || s.getSeason().contains("XC")) {
                 filteredSeason.add(s);
             }
         }
@@ -62,12 +62,12 @@ public class MeetResultController {
 
     @GetMapping("/season/indoor")
     @CrossOrigin
-    List<String> getIndoorSeason() {
+    List<Season> getIndoorSeason() {
         String sql = "SELECT DISTINCT season FROM event_test";
-        List<String> season = template.queryForList(sql, String.class);
-        List<String> filteredSeason = new ArrayList<>();
-        for(String s : season) {
-            if(s.contains("indoor") || s.contains("Indoor")) {
+        List<Season> season = template.query(sql, new SeasonMapper());
+        List<Season> filteredSeason = new ArrayList<>();
+        for(Season s : season) {
+            if(s.getSeason().contains("indoor") || s.getSeason().contains("Indoor")) {
                 filteredSeason.add(s);
             }
         }
