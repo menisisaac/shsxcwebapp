@@ -5,7 +5,7 @@ const EventList = (props) => {
 
     return (
         <div className='event-list'>
-            <h2 style={{color:'red', textDecoration:'underline'}}>Schedule</h2>
+            <h2 style={{color:'red', textDecoration:'underline', fontSize:'xx-large'}}>Schedule</h2>
             {events.map((event) => (
                <div className='event-info' key={event.id}>
                 <h2>{event.name}</h2>
