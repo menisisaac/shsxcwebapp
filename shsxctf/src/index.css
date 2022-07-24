@@ -116,7 +116,11 @@ body {
   align-items: center;
   margin: 0 auto;
   max-width: 1000px;
-  border-bottom: 1px solid #f2f2f2;
+  /* border-bottom: 1px solid #f2f2f2; */
+}
+
+.navbar {
+  border-radius: 10px;
 }
 .homeLink {
   color: pink;
@@ -187,8 +191,6 @@ body {
   margin-right: auto;
   display: block;
   max-width: 100%;
-}
-.grout {
 }
 
 .list-group {
@@ -265,6 +267,15 @@ body {
   overflow-y: auto;
   max-height: 66%;
   outline-style: solid;
+}
+
+.result-line-list {
+  background-color: white;
+  max-width: 50%;
+  border-radius: 25px;
+}
+.result-page-list p {
+  margin: 0;
 }
 }
 

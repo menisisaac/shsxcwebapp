@@ -20,7 +20,7 @@ const MeetList = (props) => {
             ))}
         </select>
     </form>
-    <div>
+    <div className="result-line-list">
         <IndividualResults meetId={selectedMeet} />
     </div>
     </div>
