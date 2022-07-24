@@ -26,7 +26,7 @@ public class AnnouncementController {
     @GetMapping("/announcement")
     @CrossOrigin
     public List<Annoucement> getAnnouncements() {
-        String sql = "SELECT * FROM announcement";
+        String sql = "SELECT * FROM announcement order by idannouncement desc limit 10";
         return template.query(sql, new AnnoucementMapper());
     }
 
