@@ -55,7 +55,7 @@ public class AddOldResults {
                 String tempUrl = temp.get(1).getElementsByAttribute("href").get(0).absUrl("href");
                 if(!isUrlIdExists(tempUrl, template)) {
                     if(Scraper.getLines(tempUrl) != null && tempUrl.contains("section2harrier")) {
-                        if(!tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17groutinvy.html") && !tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17niskayunaekideninvy.html") && !tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17queensburyinvy.html") &&  !tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17tartaninvy.html")) {
+                        if(!tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17groutinvy.html") && !tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17niskayunaekideninvy.html") && !tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17queensburyinvy.html") &&  !tempUrl.equals("https://www.section2harrier.com/crosscountry17/xc17tartaninvy.html") && !tempUrl.equals("https://section2harrier.com/crosscountry17/xc17gloverinvy.html")) {
                             Data_Processor dp = new Data_Processor(Scraper.getLines(tempUrl), temp.get(0).text(), tempUrl, season);
                             dp.sendToDataBase(template);
                         }
