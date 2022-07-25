@@ -91,10 +91,10 @@ public class MeetResultController {
     @PostMapping("/addResult")
     @CrossOrigin
     public void addResults() {
-        AddOldResults resultsThree = new AddOldResults(template, "https://section2harrier.com/crosscountry17/xc17invys.html", "2017 Cross Country");
-        AddOldResults resultsFour = new AddOldResults(template, "https://section2harrier.com/crosscountry16/xc16invys.html", "2016 Cross Country");
-        AddOldResults resultsFive = new AddOldResults(template, "https://section2harrier.com/crosscountry15/xc15invys.html", "2015 Cross Country");
-        AddOldResults resultsSix = new AddOldResults(template, "https://section2harrier.com/crosscountry14/xc14invys.html", "2014 Cross Country");
+        AddOldResults resultsThree = new AddOldResults(template, "https://www.section2harrier.com/indoor20/in20schedule.html", "2019-20 Indoor Track");
+        AddOldResults resultsFour = new AddOldResults(template, "https://www.section2harrier.com/indoor19/in19schedule.html", "2018-19 Indoor Track");
+        AddOldResults resultsFive = new AddOldResults(template, "https://www.section2harrier.com/indoor18/in18schedule.html", "2017-18 Indoor Track");
+        AddOldResults resultsSix = new AddOldResults(template, "https://www.section2harrier.com/indoor17/in17schedule.html", "2016-17 Indoor Track");
     }
 
     @GetMapping("/race")
